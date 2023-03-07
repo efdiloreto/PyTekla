@@ -1,0 +1,88 @@
+site_name: PyTekla
+site_description: Use Python for your Tekla Structures plugins
+strict: true
+
+theme:
+  name: "material"
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: lime
+      accent: lime
+      toggle:
+        icon: material/lightbulb-outline
+        name: "Turn off the lights"
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: lime
+      accent: lime
+      toggle:
+        icon: material/lightbulb
+        name: "Turn on the lights"
+
+nav:
+    - Overview: 'index.md'
+    - Installation: 'install.md'
+    - 'First Steps': 'first_steps.md'
+    - Examples:
+        - examples/selection.md
+        - examples/creation.md
+        - examples/modification.md
+        - examples/geometry.md
+        - examples/GUI.md
+    - 'API Reference': api_reference.md
+    - Credits: credits.md
+    - License: license.md
+
+markdown_extensions:
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - toc:
+      permalink: "#"
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - mkdocstrings
+  - search
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+repo_name: efdiloreto/pytekla
+repo_url: https://github.com/efdiloreto/pytekla
