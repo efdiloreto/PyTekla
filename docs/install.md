@@ -7,7 +7,7 @@ PyTekla is available on PyPI:
 pip install pytekla
 ```
 
-Optionally you can install PyTekla along the libraries for data management:
+Optionally you can install PyTekla along the libraries for data management (for example, pandas):
 ```bash
 pip install pytekla[data]
 ```
