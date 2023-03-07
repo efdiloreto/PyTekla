@@ -26,5 +26,7 @@ try:
     from .wrappers import *
 except System.IO.FileNotFoundException:
     sys.stderr.write(
-        '\033[91m' + "Please set a valid path to the Tekla Structures bin folder before using this library.\nUse \"pytekla.config.set_tekla_path\"\n." + "\033[0m"
+        "\033[91m"
+        + 'Please set a valid path to the Tekla Structures bin folder before using this library.\nUse "pytekla.config.set_tekla_path"\n.'
+        + "\033[0m"
     )

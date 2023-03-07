@@ -35,7 +35,7 @@ def _process_attr(_object):
             k: wrap(v, detect_types=False) for k, v in zip(_object.Keys, _object.Values)
         }
     elif isinstance(_object, (IEnumerator, IEnumerable)):
-       return (wrap(elem, detect_types=False) for elem in _object)
+        return (wrap(elem, detect_types=False) for elem in _object)
     else:
         return wrap(_object, detect_types=False)
 
@@ -43,7 +43,10 @@ def _process_attr(_object):
 def _attrs_wrapper(func):
     def wrapper(*args, **kwargs):
         args = [a.unwrap() if isinstance(a, BaseWrapper) else a for a in args]
-        kwargs = {k: (v.unwrap() if isinstance(v, BaseWrapper) else v) for k,v in kwargs.items()}
+        kwargs = {
+            k: (v.unwrap() if isinstance(v, BaseWrapper) else v)
+            for k, v in kwargs.items()
+        }
         result = func(*args, **kwargs)
         new_result = _process_attr(result)
         return new_result
@@ -65,7 +68,7 @@ class BaseWrapper:
 
     This class provides a more Pythonic interface for interacting with Tekla Structures software.
 
-    When an attribute is accessed, the class uses the `__getattr__` and `__getattribute__` methods to convert the attribute to a more Pythonic format. 
+    When an attribute is accessed, the class uses the `__getattr__` and `__getattribute__` methods to convert the attribute to a more Pythonic format.
 
     This class also uses the [`wrap`][pytekla.wrappers.wrap] function to automatically convert wrapped objects to their internal Tekla.Structures format when they are set as attributes.
 
@@ -75,6 +78,7 @@ class BaseWrapper:
     ----------
         https://developer.tekla.com/tekla-structures/api/22/8180
     """
+
     def __init__(self, tekla_object):
         """Initializes the class using a Tekla API object
 
@@ -824,7 +828,7 @@ def wrap(some_object, *args, detect_types=True):
     class. If the object is not a string will try to wrap it with an appropriate class. If the object is not of a known type, it is returned unchanged.
 
     The possible wrapper classes are:
-    
+
     - [`BaseWrapper`][pytekla.wrappers.BaseWrapper]: The base wrapper class that other wrappers inherit from. Can wrap any object in the Tekla.Structures namespace.
 
     - [`ModelObjectWrapper`][pytekla.wrappers.ModelObjectWrapper]: A wrapper for Tekla.Structures.Model.ModelObject subclasses instances.

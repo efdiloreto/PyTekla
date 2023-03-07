@@ -6,7 +6,6 @@ from System.Collections import Hashtable
 from System.Collections.Generic import Dictionary
 
 
-
 def _create_net_idict(keys, values, hashtable=False):
     if hashtable:
         net_idict = Hashtable()
