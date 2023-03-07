@@ -7,6 +7,15 @@ PyTekla is available on PyPI:
 pip install pytekla
 ```
 
+Optionally you can install PyTekla along the libraries for data management:
+```bash
+pip install pytekla[data]
+```
+or the "dev" version:
+```bash
+pip install pytekla[dev]
+```
+
 PyTekla officially supports Python 3.11+.
 
 
