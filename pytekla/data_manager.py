@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def create_dataframe(
+def create_model_objects_dataframe(
     objects,
     report_properties=None,
     user_properties=None,
@@ -29,17 +29,17 @@ def create_dataframe(
     pd.DataFrame
         A pandas DataFrame containing the extracted information.
 
-    Example
-    -------
+    Examples
+    --------
     >>> objects = [obj1, obj2, obj3]
     >>> report_properties = {'prop1': int, 'prop2': str}
     >>> user_properties = {'prop3': float, 'prop4': str}
     >>> attributes = ['attr1', 'attr2', 'attr2.attr3']
     >>> create_dataframe(objects, report_properties, user_properties, attributes)
-       prop1 prop2  prop3 prop4  attr1  attr2  attr3
-    0     1    A   3.14    B1   1.0   0.5   0.7
-    1     2    C   6.28    B2   2.0   1.0   1.1
-    2     3    E   9.42    B3   3.0   1.5   1.5
+        prop1 prop2  prop3 prop4  attr1  attr2  attr3
+        0     1    A   3.14    B1   1.0   0.5   0.7
+        1     2    C   6.28    B2   2.0   1.0   1.1
+        2     3    E   9.42    B3   3.0   1.5   1.5
     """
     data = []
     for obj in objects:
