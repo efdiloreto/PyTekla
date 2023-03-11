@@ -40,6 +40,7 @@ nav:
         - examples/modification.md
         - examples/geometry.md
         - examples/GUI.md
+        - examples/data.md
     - 'API Reference': api_reference.md
     - Credits: credits.md
     - License: license.md
