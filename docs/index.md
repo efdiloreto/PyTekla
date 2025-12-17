@@ -21,7 +21,3 @@ PyTekla provides a Pythonic interface to the Tekla Open API, which makes it easi
 
 Made with :octicons-heart-fill-24:{ .heart } by [Eduardo](https://www.linkedin.com/in/ediloreto/) and [Natalia](https://www.linkedin.com/in/mnaa85/)
 
-## Support our work
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg)](https://www.buymeacoffee.com/mnaa85)
-
