@@ -402,16 +402,15 @@ class ModelObjectWrapper(BaseWrapper, WithUserPropertyMixin):
         ]
 
         for k, v in kwargs.items():
-            match v:
-                case str():
-                    keys_str.Add(k)
-                    values_str.Add(v)
-                case int():
-                    keys_int.Add(k)
-                    values_int.Add(v)
-                case float():
-                    keys_float.Add(k)
-                    values_float.Add(v)
+            if isinstance(v, str):
+                keys_str.Add(k)
+                values_str.Add(v)
+            elif isinstance(v, int):
+                keys_int.Add(k)
+                values_int.Add(v)
+            elif isinstance(v, float):
+                keys_float.Add(k)
+                values_float.Add(v)
         to = _get_tekla_object(self)
         return to.SetUserProperties(
             keys_str, values_str, keys_float, values_float, keys_int, values_int
@@ -603,14 +602,13 @@ class ModelWrapper(BaseWrapper):
         >>>     print(obj)
         """
         selector = object.__getattribute__(self, "_model_object_selector")
-        match (model_filter):
-            case str():
-                return selector.GetObjectsByFilterName(model_filter)
-            case BaseWrapper():
-                return selector.GetObjectsByFilter(model_filter.unwrap())
-            case _:
-                return selector.GetObjectsByFilter(model_filter)
-
+        selector = object.__getattribute__(self, "_model_object_selector")
+        if isinstance(model_filter, str):
+            return selector.GetObjectsByFilterName(model_filter)
+        elif isinstance(model_filter, BaseWrapper):
+            return selector.GetObjectsByFilter(model_filter.unwrap())
+        else:
+            return selector.GetObjectsByFilter(model_filter)
     def get_objects_by_bounding_box(self, min_point_coords, max_point_coords):
         """
         Get objects from the model that are inside a bounding box defined by two points.
